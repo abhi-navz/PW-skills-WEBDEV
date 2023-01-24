@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms||HTML</title>
+</head>
+<body>
+    <form action="/signup" method="get" target="_blank">
+        <fieldset>
+            <legend>Collecting basic data!!!</legend>
+        <label for="name">Enter your name</label>
+        <input type="text" id="name" name="Name" placeholder="Abhinav gupta" autofocus>
+         <br>
+         <label for="email">Enter Your email Id:</label>
+         <input type="email" name="" id="email" value="abc123@xyz.com">
+         <br>
+         <label for="Username">Username</label>
+         <input type="text" id="Username" value="monish5766" readonly="monish5766">
+         <br>
+         Password: <input type="password" name="" id="">
+         
+        <!-- <label for="textarea">Enter you address</label>
+        <textarea name="Text_area" id="textarea" cols="30" rows="5"></textarea> -->
+        <br>
+        <label for="dob">Enter DOB</label>
+        <input type="date" name="dob" id="dob">
+        <br>
+        Enter your age: <input type="number" name="" id="" min="5" max="30">
+        <br>
+        <label for="gender">Select Your gender</label>
+        <label for="gender_male">MALE</label>
+        <input type="radio" name="gender" id="gender_male"  value="Male" >
+        <label for="gender_female">FEMALE</label>
+        <!-- the value of name attribute needs to be same in all rdio options -->
+        <input type="radio" name="gender" id="gender_female" value="FEMALE" >
+        <label for="gender_prefernottosay">Prefer not to say</label>
+        <input type="radio" name="gender" id="gender_prefernottosay" value="Unsaid">
+        <br>
+        <label for="">Selct your favorite fruit</label>
+        <br>
+        <label for="mango">Mango</label>
+        <input type="checkbox" name="mango" id="mango">
+        <br>
+        <label for="banana">Banana</label>
+        <input type="checkbox" name="banana" id="banana">
+        <br>
+        <label for="orange">Orange</label>
+        <input type="checkbox" name="orange" id="orange">
+        <br>
+        <input type="submit" value="Submit form">
+        <input type="reset" value="Reset form">
+
+
+
+      </fieldset>
+   </form>
+</body>
+</html>

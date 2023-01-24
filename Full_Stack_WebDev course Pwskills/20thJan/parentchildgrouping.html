@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parent child grouping</title>
+</head>
+<body>
+    <p>gonna learn about parent child grouping</p>
+    <!-- use greater than symboll to get antoher tag in a tag. for example. div>p>p -->
+    <div>
+        <p>
+            <p> Parent child grouping</p>
+        </p>
+    </div>
+    <!-- to get multiple tags of same type we use * like for five p tags: p*5 -->
+    <p>
+        <div>
+            <p>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </p>
+        </div>
+    </p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <!-- Sibling brotherhood of tags. write p+p type. -->
+    <p></p>
+    <p></p>
+    <div class="grandfther">
+        <p class="father">
+            <p class="brother"></p>
+            <p class="sister"></p>
+        </p>
+    </div>
+    
+    <!-- Grouping. 
+             div>(nav>p*3+img)+ section>p  : a group div will contain tow parts in this case, one bracket part plus another with part with plus sign-->
+
+<div>
+    <nav>
+        <p></p>
+        <p></p>
+        <p></p>
+        <img src="" alt="">
+        
+    </nav>
+    <section>
+        <p></p>
+    </section>
+</div>  
+<div>
+    <p><img src="" alt=""><a href=""></a></p>
+    <p><img src="" alt=""><a href=""></a></p>
+    <p><img src="" alt=""><a href=""></a></p>
+</div> 
+<img src="abhi.jpg," alt="ere">
+<a href="#" class="link"></a>         
+</body>
+</html>

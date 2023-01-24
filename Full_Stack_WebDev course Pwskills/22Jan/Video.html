@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+</head>
+<body>
+    <!--  Video -->
+    <h2>Varanasi Ghats</h2>
+    <video src="https://player.vimeo.com/external/430376483.sd.mp4?s=f5e91df7c870769c68bfafd8f77ddbbbfd80daf3&profile_id=164&oauth2_token_id=57447761" controls autoplay height="300px" width="400px">Varanasi</video>
+    <!-- "controls" attribute is to give all the controls of palying pausing on the web page. -->
+    <video src="https://player.vimeo.com/external/407838449.sd.mp4?s=f6723e22f05d4592467211c1e37ab048fc752e59&profile_id=164&oauth2_token_id=57447761" controls height="300px" width="400px">Varanasi drone shot</video>
+    <!-- We have attrubute "autoplay" which makes the video autoplay for the first time only when it's loaded to the browser form the server, and attrubute "muted" it mutes the video  -->
+    <video src="https://player.vimeo.com/external/430376513.sd.mp4?s=b5245fdd25d77fb9742cdf55dea26bdc27a34936&profile_id=164&oauth2_token_id=57447761" controls autoplay muted height="300px" width="400px">Boats</video>
+    <!-- Earlier browsers weren't supporitng all format of videos, so we use to give multiple sources in other fomats for same videos so in case one don't work other could kept it going. -->
+    <video controls height="300px" width="400px">
+        <source src="https://player.vimeo.com/external/430376362.sd.mp4?s=e1dc510299a31c16b3da883eb1f520368e7604b3&profile_id=164&oauth2_token_id=57447761">
+         <source src="" ><!-- alternative source -->
+    </video>
+</body>
+</html>
