@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo Classes</title>
+    <style>
+        
+        button:hover{
+            background-color: blueviolet;
+            color: white;
+        }
+        input:focus{
+            background-color: aqua;
+            color: #711125;
+        }
+        .instagram:visited{
+            color: rgb(224, 23, 228);
+        }
+        .instagram:hover{
+            background-color: blueviolet;
+            color: #e3e2e2;
+        }
+        .instagram:active{
+            color: #ff0000;
+            background-color: #414141;
+        }
+        
+        a:first-child{ /*when a is first child of anything */
+        background-color: yellow;
+       }
+       a:nth-child( 2n+3){
+        background-color: #34ecec;
+       }
+       .lorem::after{
+        content:"Abhinav";
+        color: red;
+       }
+    .first::before{
+        content: "Abhishek";
+        background-color: violet;
+        color: white;
+    }
+    .lorem::first-letter{
+        color: #e21212;
+    }
+    .lorem::first-line{
+        background-color: aqua;
+    }
+    ::selection{
+        background-color: blueviolet;
+        color: azure;
+    }
+    li::marker{
+        color: blue;;
+    }
+  
+
+    </style>
+</head>
+<body>
+    <h2>Pseudo Classes</h2>
+    <button>Submit</button> <br>
+   Enter your name: <input type="text">
+   <br>
+   <a class="instagram" href="https://www.instagram.com/_abhinavz/" target="_blank">Instagram</a><br>
+<nav>
+    
+   <a href="https://google.com">Google</a>
+   <a href="https://google.com">Google</a>
+   <a href="https://google.com">Google</a>
+   <a href="https://google.com">Google</a>
+   <a href="https://google.com">Google</a>
+   <a href="https://google.com">Google</a>
+</nav>
+
+ <!-- Pseudo Elements -->
+ <p class="first">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo natus consequatur, corporis voluptatibus molestiae voluptates dolorem qui a fugit sint commodi veritatis maiores!</p>
+ <p class="lorem">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus dolor unde corporis esse porro, amet et nemo voluptatibus quaerat incidunt iusto, sint eveniet veritatis.</p>
+
+ <ul>
+    <li>ONe</li>
+    <li>two</li>
+    <li>three</li>
+    <li>four</li>
+    <li>five</li>
+ </ul>
+
+
+</body>
+</html>

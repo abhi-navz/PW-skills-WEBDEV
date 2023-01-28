@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient</title>
+    <style>
+        *{
+            margin:0px;
+           
+        }
+        .linear{
+            border: solid 2px black;
+            height: 500px;
+            width:500px;
+            background:linear-gradient( to left, violet, white, violet);
+           
+           
+        }
+        .radial{
+            width: 500px;
+            height: 500px;
+            background:radial-gradient(  white, violet, purple, white)
+           /* background-image: repeating-radial-gradient(rgb(246, 93, 22), white , violet); */
+           /* background-image: repeating-radial-gradient( ellipse, red 10% , blue 20%, violet 30%); */
+        }
+        .conical{
+            width: 500px;
+            height: 500px;
+            background-image:conic gradient(red , blue);
+        }
+    </style>
+</head>
+<body>
+    <div class="linear"></div>
+    <div class="radial"></div>
+    <div class="conical"></div>
+</body>
+</html>

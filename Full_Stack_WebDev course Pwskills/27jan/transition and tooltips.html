@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transition</title>
+    <style>
+       img{
+            transition: width 3s, height 3s, border-radius 3s;
+            
+            /* transition-delay: 1s; */
+            transition-timing-function: ease-in-out;
+        }
+        img:hover{
+            height: 500px;
+            width: 500px;
+            border-radius: 250px;
+        }
+        h2{
+            background-color: blueviolet;
+            color: white;
+            text-align: center;
+            transition: all 3s ;
+            
+        }
+        h2:hover{
+           color: #51de4e;
+           font-weight: 500;
+           text-transform: uppercase;
+            padding: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Simple Transiton</h2>
+    <div class="tansition">
+        <img height="200px" width="200px" title="Ganga Aarati" src="https://images.pexels.com/photos/7919685/pexels-photo-7919685.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+        <!-- "title" is used to give tooltips , it can be given for any element but usually it's used for images, video or buttons -->
+        <img height="200px" width="200px" title="Fire Crackers" src="https://images.pexels.com/photos/14353494/pexels-photo-14353494.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="">
+        <img height="200px" width="200px" title="Kerala" src="https://images.pexels.com/photos/15125544/pexels-photo-15125544.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="">
+        
+    </div>
+</body>
+</html>
