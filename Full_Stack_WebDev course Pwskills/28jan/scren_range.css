@@ -1,0 +1,29 @@
+@media(max-width:600px)
+{
+    /* for extra small devices, like i phone se  */
+}
+
+@media (min-width: 600px)
+ {
+    /* for small devicse like modern phone and tablets in potrait */
+    /* effective range: 600px -768px */
+}
+
+@media( min-width:768px)
+{
+    /* for medium devices like tablets in landscape */
+    /* effective range: 768px-992px */
+}
+
+@media (min-width:992px) 
+{
+    /* for  large devices like laptop, desktops, biggger tablets etc */
+    /* effective range : 992px-1200px */
+    
+}
+
+@media (min-width:1200px) 
+{
+    /* for extra lagge devices like, bigger laptop/desltop or tv */
+
+}

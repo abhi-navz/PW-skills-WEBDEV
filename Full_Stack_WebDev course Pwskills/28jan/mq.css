@@ -1,0 +1,86 @@
+body{
+    background-color: #414141;
+    color: white;
+    
+    font-size: x-large;
+}
+div{
+    text-align: center;
+}
+div::after{
+    content: "Welcome to media query demo";
+
+}
+/* @media (min-width: 500px){
+    body{
+        background-color: rgb(245, 29, 213);
+        color: #ffffff;
+    }
+    div::after{
+        content: "Woah we are responsive";
+    }
+}
+@media (min-width: 800px){
+    body{
+        background-color: #b92c44;
+        color: yellow;
+    }
+    div::after{
+        content: "Bigger Screen";
+    }
+}
+@media (min-width: 1000px){
+    body{
+        background-color: #abf212;
+        color: #c600ee;
+    }
+    div::after{
+        content: "Even Bigger Screen";
+    }
+} */
+@media(max-width:600px){
+   body{
+    background-color: purple;
+    color: white;
+   }
+   div::after{
+    content: " Extra Small Screen Phones";
+   }
+}
+@media( min-width:600px) and ( max-width:768px){
+    body{
+        background-color: #8800ff;
+        color: yellow;
+    }
+    div::after{
+        content: "Small Screen Devices";
+    }
+}
+@media( 768px<= width <= 992px){
+    body{
+        background-color: #ffd500;
+        color: #ff0004;
+    }
+    div::after{
+        content: "Big Screen Devices";
+    }
+}
+@media( 992px<= width <= 1200px){
+    body{
+        background-color: #ff6f00;
+        color: #424141;
+    }
+    div::after{
+        content: "Big Screen Devices";
+    }
+}
+@media( min-width: 1200px)
+{
+    body{
+        background-color: #17d9ef;
+        color: #8800ff;
+    }
+    div::after{
+        content: "Extra big screen devices";
+    }
+}
