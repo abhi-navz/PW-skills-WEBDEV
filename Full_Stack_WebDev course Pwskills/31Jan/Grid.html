@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid||Html</title>
+    <style>
+        .container{
+                display: grid;
+                height: 600px;
+                /* grid-template-columns: 100px 100px 100px; */
+                grid-template-columns: 1fr 1fr 1fr;
+                /* grid-template-columns: repeat(3,1fr); */
+                /* grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr) minmax(100px, 1fr); */
+                /* grid-template-rows: 100px 100px 100px; */
+                grid-template-rows: 1fr 1fr 1fr;
+                /* grid-template-rows: repeat(3, 1fr); */
+                border: solid 2px purple;
+                /* gap: 10px 5px; */ 
+                /* gap( row-gap, column-gap;) */
+                /* justify-items: center;  for x asis
+                align-items: center;  for y asis */
+
+
+        }
+        .box{
+            /* width: 100px;
+            height: 100px; */
+        }
+        .box1
+        {
+            background-color: red;
+            /* grid-row-start:1 ;
+            grid-row-end: 4; */
+        }
+        .box2
+        {
+
+            background-color: #726464;
+        } 
+        .box3
+        {
+            background-color: #00ff73;
+        }
+        .box4
+        {
+            background-color: #e620d6;
+            /* justify-self: center; */
+            /* align-self: center; */
+        }
+        .box5
+        {
+            background-color: #e1ff00;
+            grid-column-start: 2;
+            grid-column-end: 4;
+        }
+         .box6
+        {
+            background-color: #0051ff;
+        }
+        .box7
+        {
+            background-color: rgb(21, 175, 218);
+        }
+        .box8
+        {
+            background-color: rgb(234, 52, 179);
+        }
+        .box9
+        {
+            background-color: rgb(33, 31, 31);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+        <div class="box box5"></div>
+        <div class="box box6"></div>
+        <div class="box box7"></div>
+        <div class="box box8"></div>
+        <div class="box box9"></div>
+    </div>
+</body>
+</html>
