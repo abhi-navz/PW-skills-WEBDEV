@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexBox</title>
+    <style>
+        .container{
+            /* display: inline-flex; */
+            display:  flex;
+            border: solid 3px blue;
+            height: 300px; 
+             /* width:300px; */
+            /* flex-direction: column-reverse  */
+            /* flex-wrap:wrap; */
+            /* flex-flow: column wrap; */
+             /* it's a way to give properties flex direction and flex wrap in one line*/
+             /* justify-content: space-between; */
+             /* align-items: flex-end; */
+             /* align-content:center */
+             /* gap: 40px; */
+              /* column-gap: 40px; */
+              /* row-gap: 100px; */
+        }
+        .box{
+            height: 100px;
+            width: 100px;
+            /* flex-basis: 400px; */
+        }
+        .box1{
+            background-color: red;
+            /* order: 2; */
+            /* flex-grow: 8; */
+        }
+        .box2{
+            background-color: purple;
+            /* order:3; */
+            /* flex-grow: 10; */
+            /* flex-shrink: 5;; */
+            /* flex-basis: 600px; */
+            align-self:flex-end;
+        
+        }
+        .box3{
+            background-color: yellow;
+            /* order: 1; */
+            /* flex-grow: 5; */
+            /* flex-shrink: 10; */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+       
+        <div class="box box1">Box 1</div>
+        <div class="box box2">Box 2</div>
+        <div class="box box3">Box 3</div>
+     
+    </div>
+</body>
+</html>
