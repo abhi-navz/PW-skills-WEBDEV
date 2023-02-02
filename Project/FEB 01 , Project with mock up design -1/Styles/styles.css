@@ -1,0 +1,141 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family:Poppins, Courier, monospace;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: #edf1fd;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+li{
+    list-style: none;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+button{
+    background-color: #129b9b;
+    padding: 4px 10px;
+    cursor: pointer;
+    border: 1px solid white;
+    color: #ffffff;
+    border-radius: 5px;
+    font-weight: 800px;
+    width: fit-content;
+}
+button:hover{
+    background-color: #ffffff;
+    color: #129b9b;
+    border: solid 1px black;
+    font-weight: 800;
+}
+header{
+    padding: 15px 0px;
+}
+nav{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+nav .logo{
+    font-weight: 900;
+    font-size: 25px;
+}
+nav ul{
+    display: flex;
+    font-weight: 700;
+    font-size: 18x;
+    align-items: center;
+    gap: 30px;
+    
+}
+nav ul li:hover{
+    text-decoration: underline;
+    font-weight:bolder;
+    font-size: 15px;
+}
+.search-field{
+    display: flex;
+    gap: 30px;
+}
+input{
+    padding: 4px 10px;
+}
+.hero-section{
+    display: flex;
+    align-items: center;
+}
+.hero-left-section{
+    width: 60%;
+    padding: 0 8%;
+}
+.hero-left-section h1{
+    font-weight: 800px;
+    font-size: 25px;
+    margin-bottom: 16px;
+}
+ .hero-left-section h1 span{
+    color: #129b9b;
+    font-weight: bolder;
+    background-color: #dfdfe0;
+    padding: 0px 15px;
+    font-size: 38px;
+    font-weight: 900;
+    
+}
+.hero-left-section p{
+    font-weight: 600;
+}
+.hero-left-section p span{
+    
+    color: #129b9b;
+    font-weight: 900;
+    font-size: 18px;
+
+}
+.hero-right-section{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.hero-right-section-btn{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.hero-right-section img{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+
+}
+footer{
+    font-weight: 600;
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 0px;
+}
+footer ul{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+} 
+footer ul li i{
+    font-size: 30px;
+}
+footer ul li i:hover{
+    font-size: 25px;
+    border: solid 2px black;
+}
