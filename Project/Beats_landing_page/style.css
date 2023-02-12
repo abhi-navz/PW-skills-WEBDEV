@@ -1,0 +1,265 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  background-color: #0f0f10;
+  color: #ffffff;
+}
+img {
+  cursor: pointer;
+}
+li {
+  list-style: none;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+}
+.nav-right {
+  display: flex;
+  gap: 30px;
+}
+.nav-right ul {
+  display: flex;
+  gap: 30px;
+}
+.nav-right button {
+  padding: 7px 35px;
+  background-color: #272a2d;
+}
+main {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+img[alt="main-img"] {
+  height: 600px;
+  width: 250px;
+  position: relative;
+  top: -200px;
+}
+.mainright {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 80px;
+  margin-left: 70px;
+}
+.mainright h1 {
+  font-size: 50px;
+  margin-top: -30px;
+}
+p {
+  font-size: 12px;
+}
+img[alt="onEar"] {
+  width: 300px;
+  position: relative;
+  left: 50px;
+}
+.add_bag {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  background-color: #272a2d;
+  border-radius: 7px;
+  padding: 12px 15px;
+  width: 235px;
+  height: 50px;
+}
+.social-media {
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+  position: relative;
+  bottom: 50px;
+}
+.specs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.specifications {
+  display: flex;
+  gap: 150px;
+}
+.specitems {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.bt,
+.mic {
+  position: relative;
+  left: 50px;
+}
+.case {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+.caseinfo {
+  display: flex;
+  align-items: center;
+  gap: 150px;
+}
+.caseright {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.moreinfo {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  background-color: #272a2d;
+  width: 130px;
+  height: 50px;
+  padding: 10px 8px;
+  border-radius: 8px;
+}
+.center {
+  display: flex;
+  justify-content: center;
+}
+.buy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  border-radius: 8px;
+  height: 320px;
+  width: 70%;
+  background-color: #181a1b;
+  margin-top: 80px;
+}
+.buy .buyleft {
+  background-color: transparent;
+}
+.buyleft h3,
+.buyleft p {
+  background-color: transparent;
+}
+.buyleft {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.buynow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 120px;
+  height: 40px;
+  border-radius: 7px;
+}
+.buy .buyright {
+  background-color: transparent;
+}
+.buyright img {
+  background-color: transparent;
+}
+.products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: #181a1b;
+  height: 150px;
+  width: 150px;
+  margin-top: 80px;
+}
+img[alt="pimg"] {
+  width: 90px;
+  height: 110px;
+  margin-top: -40px;
+}
+.card img,
+.card .pname {
+  background-color: transparent;
+}
+
+.pname {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+.pname div {
+  background-color: transparent;
+}
+div p,
+div span {
+  background-color: transparent;
+}
+.product {
+  /* display: grid;
+  grid: 1fr 1fr / 1fr 1fr 1fr 1fr;
+  flex-flow: wrap;
+  column-gap: 40px; */
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  padding-left: 50px;
+  width: 50%;
+}
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: start;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+ul li a {
+  font-size: 12px;
+  color: #bdc0c2;
+  text-decoration: none;
+}
+ul li:first-child a {
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+}
+.subscribe {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  
+}
+.firstrow{
+  display: flex;
+  background-color: #181a1b;
+  padding: 5px 10px;
+}
+.firstrow input{
+  border: none;
+  background-color: transparent;
+}
+.subscribe-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 6px;
+}
+.secondrow {
+  display: flex;
+  gap: 40px;
+}
