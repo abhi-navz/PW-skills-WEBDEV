@@ -1,0 +1,333 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Manrope";
+  /* background-color:#F6F8FA ; */
+}
+body {
+  background-color: #f6f8fa;
+}
+li {
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+}
+header {
+  height: 125vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(/Assets/mainBackground.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 25px 0px;
+}
+img[alt="logo"] {
+  height: 45px;
+  width: 120px;
+}
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+nav ul li {
+  font-size: 18px;
+}
+hr {
+  margin: 0px 100px;
+}
+header div {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: start;
+  margin: 80px 150px;
+}
+header div h1 {
+  font-size: 72px;
+}
+
+header div p {
+  font-size: 18px;
+  font-weight: 400;
+}
+header div button {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  padding: 10px 30px;
+  background-color: #6d6def;
+  border: none;
+  border-radius: 20px;
+}
+/* logo name Section */
+.logoname {
+  background-color: #f6f8fa;
+}
+.logoname div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0px 35px;
+  background-color: #ffffff;
+  padding: 75px 0px;
+  position: relative;
+  bottom: 95px;
+  border-radius: 30px;
+}
+/* Product Gallery */
+.products {
+  background-color: #f6f8fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+}
+.products h1 {
+  font-size: 60px;
+  text-align: center;
+  font-weight: 900;
+}
+.productgallery {
+  margin: 0px 150px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 50px;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 130px;
+  row-gap: 80px; */
+}
+img[alt="product"] {
+  width: 380px;
+  height: 420px;
+  border-radius: 25px;
+}
+.productinfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  margin: 0px 20px;
+  padding: 25px 20px;
+  border-radius: 25px;
+  position: relative;
+  bottom: 60px;
+}
+.productname {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.productname h3 {
+  color: #6d6def;
+  font-weight: 800;
+}
+.productinfo button {
+  background-color: #6363f3;
+  color: #ffffff;
+  padding: 15px 35px;
+  border-radius: 50px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+.productcard2,
+.productcard5,
+.productcard8 {
+  position: relative;
+  top: 25px;
+}
+.productcard3,
+.productcard4,
+.productcard9 {
+  position: relative;
+  top: 50px;
+}
+/* Featured Image Section */
+.featured {
+  display: flex;
+  flex-direction: column;
+  margin-top: 200px;
+}
+.featured1 {
+  display: flex;
+}
+img[alt="featuredBackground"] {
+  width: 579px;
+}
+img[alt="featuredImage"] {
+  width: 420px;
+  height: 420px;
+  border-radius: 55px;
+  position: relative;
+  bottom: 535px;
+  left: 110px;
+}
+.featuredInfo {
+  width: 60%;
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  gap: 40px;
+}
+.featuredInfo h1 {
+  font-size: 60px;
+  font-weight: 900;
+}
+.featuredInfo p {
+  font-size: 18px;
+  /* text-align: center; */
+  font-weight: 400;
+}
+.featuredInfo button {
+  background-color: #6363f3;
+  color: white;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 600;
+}
+/* second feature Image section */
+.featured2 {
+  display: flex;
+  margin: -300px 40px;
+}
+img[alt="featuredImage2"] {
+  width: 420px;
+  height: 420px;
+  border-radius: 55px;
+  position: relative;
+  bottom: 530px;
+  left: 350px;
+}
+img[alt="featuredBackground2"] {
+  width: 700px;
+  height: 450px;
+  position: relative;
+  left: 200px;
+}
+.subscribe {
+  background-color: #6363f3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin: 0px 70px;
+  border-radius: 70px;
+  padding: 70px 0px;
+}
+.subscribe h1 {
+  font-size: 60px;
+  color: #ffffff;
+  text-align: center;
+}
+.subscribe p {
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+}
+.subsciptionfield {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.subsciptionfield div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  background-color: #5252dc;
+  padding: 15px 180px 15px 20px;
+  border-radius: 30px;
+}
+.subsciptionfield input {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  font-weight: 400;
+}
+.subsciptionfield button {
+  background-color: #ffffff;
+  color: #6363f3;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 25px;
+}
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 100px 100px;
+}
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.socials {
+  display: flex;
+  gap: 30px;
+}
+.left p {
+  font-size: 20px;
+  font-weight: 400;
+}
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+}
+.right ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+.right ul :first-child {
+  font-size: 20px;
+  font-weight: 800;
+}
+.right ul a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Customizations */
+a,
+button,
+img {
+  cursor: pointer;
+}
+img:hover {
+  box-shadow: 0px 0px 20px;
+}
+button:hover {
+  font-size: 17px;
+}
+a:hover {
+  box-shadow: 0px 0px 5px;
+  border-radius: 7px;
+}
+li:hover {
+  font-weight: 700;
+}
