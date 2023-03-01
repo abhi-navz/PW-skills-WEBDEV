@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>background color changer</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .btn {
+        font-size: 22px;
+        font-weight: 400;
+        color: white;
+        background-color: blueviolet;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <button  id="btn" class="btn">Change the background color</button>
+    <script>
+      let btn = document.getElementById("btn");
+      function colorpicker() {
+        let val = "0123456789ABCDEF";
+        let has = "#";
+        for (let i = 0; i < 6; i++) {
+          has = has + val[Math.floor(Math.random() * 16)];
+        }
+        return has;
+      }
+
+      function colorchanger() {
+        document.body.style.backgroundColor = colorpicker();
+      }
+      btn.addEventListener("click", colorchanger);
+    </script>
+  </body>
+</html>
