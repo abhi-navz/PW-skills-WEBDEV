@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Highest Marks</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <h1>Highest Marks finder</h1>
+    <p>Enter the marks</p>
+    <div class="container">
+      <div>
+        <label for="stdone">Enter Marks of First Student:</label>
+        <input type="number" id="stdone" , placeholder="Enter marks.." /> <br />
+      </div>
+      <div>
+        <label for="stdtwo">Enter Marks of Second Student:</label>
+        <input type="number" id="stdtwo" , placeholder="Enter marks.." /><br />
+      </div>
+      <div>
+        <label for="stdthree">Enter Marks of Third Student:</label>
+        <input
+          type="number"
+          id="stdthree"
+          ,
+          placeholder="Enter marks.." /><br />
+      </div>
+      <div>
+        <label for="stdfour">Enter Marks of Fourth Student:</label>
+        <input type="number" id="stdfour" , placeholder="Enter marks.." /><br />
+      </div>
+      <div>
+        <label for="stdfive">Enter Marks of Fifth Student:</label>
+        <input type="number" id="stdfive" , placeholder="Enter marks.." />
+      </div>
+
+      <button onclick="highestmarks()" id="find">Find</button>
+    </div>
+    <p id="output">Highest Marks is: <span id="result">__</span></p>
+  </body>
+</html>
