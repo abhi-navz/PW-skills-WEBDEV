@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rent Calculator</title>
+    <script src="./script.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>Kabir Car Rental</h1>
+    <div class="container">
+      <div>
+        <label for="cartype">Choose Car type:</label> <br>
+        <input type="radio" id="economy" value="economy" name="cartype" />
+        <label for="economy">ECONOMY</label>
+        <input type="radio" id="midsize" value="midsize" name="cartype" />
+        <label for="midsize">MIDSIZE</label>
+        <input type="radio" id="luxury" value="luxury" name="cartype" />
+        <label for="luxury">LUXURY</label>
+      </div>
+      <div>
+        <label for="days">Enter no of days:</label>
+        <input type="number" id="days" />
+      </div>
+
+      <button id="btn" onclick="calculate()">Calculate Rent</button>
+      <div class="output">
+        The total Rent is: &#8377; <span>____________</span>
+      </div>
+    </div>
+  </body>
+</html>
