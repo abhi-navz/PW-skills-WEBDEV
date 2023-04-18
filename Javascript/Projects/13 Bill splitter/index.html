@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill splitter</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./scripts.js"></script>
+</head>
+<body>
+    <h1>Bill Splitter</h1>
+    <div class="main">
+       <div class="items">
+        <div>
+            <label for="item1">Enter the price of item 1:</label>
+        <input id="item1" type="text" >
+        </div>
+        <div>
+            <label for="item2">Enter the price of item 2:</label>
+            <input id="item2" type="text" >
+        </div>
+        <div>
+            <label for="item3">Enter the price of item 3:</label>
+        <input id="item3" type="text" >
+        </div>
+        <div>
+            <label for="item4">Enter the price of item 4:</label>
+            <input id="item4" type="text" >
+        </div>
+        <div>
+            <label for="item5">Enter the price of item 5:</label>
+        <input id="item5" type="text" >
+        </div>
+       </div>
+       <div class="people">
+        <label for="noOfPerson">Enter the number of people bill is to be splitted between:</label>
+        <input type="number" id="noOfPerson">
+       </div>
+       <button id="btn" onclick="split()">Click to Split the bill</button>
+    </div>
+    <div class="output">
+        <p>The total bill is: ₹<span id="totalbill">________</span><br>
+           Each person have to pay ₹<span id="eachbill">_________</span>
+        </p>
+
+    </div>    
+</body>
+</html2
