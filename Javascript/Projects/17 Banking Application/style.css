@@ -1,0 +1,35 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    background-color: aqua;
+    padding: 30px 60px;
+    border-radius: 10px;
+    gap: 10px;
+}
+button{
+    color: white;
+    background-color: blueviolet;
+    font-weight: 700;
+    border: none;
+    padding: 4px 6px;
+}
+p,label{
+    font-size: 18px;
+    font-weight: 800;
+
+}
+span{
+    color: blue;
+    text-decoration: underline;
+    font-weight: 900;
+    font-size: 20px;
+}

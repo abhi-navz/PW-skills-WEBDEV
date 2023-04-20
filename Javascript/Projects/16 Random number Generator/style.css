@@ -1,0 +1,21 @@
+body {
+  background-color: #414141;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  color: wlhte;
+  background-color: violet;
+  padding: 10px 30px;
+}
+div {
+  background-color: aqua;
+  font-size: 22px;
+  font-weight: 700;
+
+  width: 400px;
+  text-align: center;
+}

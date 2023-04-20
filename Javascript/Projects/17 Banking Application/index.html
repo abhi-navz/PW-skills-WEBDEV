@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Banking Application</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <h1>Banking Applcation</h1>
+    <h2>Welcome <span id="name"></span></h2>
+    <div class="main">
+      <p>Your Current balance is: ₹<span id="currentBalance"></span></p>
+      <div>
+        <label for="amount">Enter Amount:</label>
+      <input type="number" id="amount" />
+      </div>
+      <div class="btn">
+        <button onclick="withdraw()" id="withdraw">Withdraw</button>
+        <button onclick="deposit()" id="deposit">Deposit</button>
+      </div>
+    </div>
+  </body>
+</html>
