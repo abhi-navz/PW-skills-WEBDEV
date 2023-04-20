@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Total order Value Calculator</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <h1>Cart Value Calculator</h1>
+    <div class="main">
+      <div>
+        <label for="item1">Item 1:</label>
+        <input id="item1Price" type="number" placeholder="Price" />
+        <input id="item1Quantity" type="number" placeholder="Enter Qunatity" />
+      </div>
+      <div>
+        <label for="item2">Item 2:</label>
+        <input id="item2Price" type="number" placeholder="Price" />
+        <input id="item2Quantity" type="number" placeholder="Enter Qunatity" />
+      </div>
+      <div>
+        <label for="item3">Item 3:</label>
+        <input id="item3Price" type="number" placeholder="Price" />
+        <input id="item3Quantity" type="number" placeholder="Enter Qunatity" />
+      </div>
+      <div>
+        <label for="item4">Item 4:</label>
+        <input id="item4Price" type="number" placeholder="Price" />
+        <input id="item4Quantity" type="number" placeholder="Enter Qunatity" />
+      </div>
+      <button onclick="calculateTotal()">Calculate Total Price</button>
+    </div>
+
+    <p>The total order price is ₹ <span id="output">_______</span></p>
+  </body>
+</html>
