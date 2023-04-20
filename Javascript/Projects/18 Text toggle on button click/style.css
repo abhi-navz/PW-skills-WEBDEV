@@ -1,0 +1,28 @@
+body{
+    background-color: #414141;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main{
+    background-color: aqua;
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 600px;
+    border-radius: 10px;
+
+}
+button{
+    color: white;
+    background-color: blue;
+    border: none;
+    padding: 6px 7px;
+    font-weight: 700;
+    font-size: 18px;
+}
