@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+    <style>
+        body{
+            background: url(https://images8.alphacoders.com/577/thumbbig-577527.webp);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        
+        }
+        h2{
+            font-size: 70px;
+            color: rgb(199, 24, 215);
+            text-decoration: underline;
+        }
+        button{
+            background-color: rgb(235, 39, 235);
+            color: white;
+            font-size: 22px;
+            padding: 7px 10px;
+            border: none;
+            border-radius: 25px;
+        }
+      .box {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 25px;
+      }
+      .counterbox {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+       
+      }
+      #number {
+        padding: 8px 16px;
+        font-size: 30px;
+        border-radius: 50%;
+        background-color: #41414141;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="box">
+      <h2>Counter</h2>
+      <div class="counterbox">
+        <button id="decreasebtn">Decrease</button>
+        <p id="number">0</p>
+        <button id="increasebtn">Increase</button>
+      </div>
+      <button id="resetbtn">Reset</button>
+    </section>
+  </body>
+  <script>
+    let a = 0;
+    let dec = document.getElementById("decreasebtn");
+    dec.addEventListener("click", decrease);
+    function decrease() {
+      a = a - 1;
+      document.getElementById("number").innerHTML = a;
+    }
+
+    let inc = document.getElementById("increasebtn");
+    inc.addEventListener("click", increase);
+    function increase() {
+      a = a + 1;
+      document.getElementById("number").innerHTML = a;
+    }
+
+    let res = document.getElementById("resetbtn");
+    res.addEventListener("click", reset);
+    function reset() {
+      a = 0;
+      document.getElementById("number").innerHTML = a;
+    }
+  </script>
+</html>
