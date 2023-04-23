@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse Out</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .box {
+        background-color: blueviolet;
+        height: 300px;
+        width: 300px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div onmouseout="out()" onmouseover="over()" class="box"></div>
+    <h1>Don't get outside of the box</h1>
+    <script src="./script.js"></script>
+  </body>
+</html>
