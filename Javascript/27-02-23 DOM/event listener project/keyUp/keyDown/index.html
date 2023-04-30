@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>OnKepress</title>
+    <style>
+        body{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+        }
+    
+      #display {
+        color: blue;
+        font-size: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div id="display">
+        <h1>press any key :)</h1>
+      </div>
+     
+    </div>
+    <script>
+      let display = document.getElementById("display");
+
+      document.addEventListener("keydown", (e)=>{
+        display.innerText = e.key + " key is down";
+        display.style.color= "red"
+        display.style.fontSize= "35px"
+      })
+      document.addEventListener("keyup", (e)=>{
+        display.innerText = "Every  key is up n up";
+        display.style.color= "darkblue"
+        display.style.fontSize= "35px"
+      })
+      
+    </script>
+  </body>
+</html>
