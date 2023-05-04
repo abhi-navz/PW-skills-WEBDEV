@@ -39,6 +39,10 @@ const books = [
 // Filter out books published before 2010 and capitalize author names
 const filteredBooks = books
   .filter((book) => book.publicationYear >= 2010) // it filters and excludes the books published before 2010
-  .map((book) => ({ ...book, author: book.author.toUpperCase() })); // ...book makes a shallow copy of book objects.
+  .map((book) => ({
+    title: book.title,
+    author: book.author.toUpperCase(),
+    publicationYear: book.publicationYear,
+  }));
 
 console.log(filteredBooks);
