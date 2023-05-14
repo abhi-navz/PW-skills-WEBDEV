@@ -1,0 +1,4 @@
+// *********************Network and API******************
+// Network requests and API are fundamental to modern web Development, it simple terms a network request is proces of sendng a message from client usually a brwoser to the server and recieving a response. the process is often used to retrive data from server, such as html pages, images or other resouces or to send data to server such as form submissions or user input. 
+
+// APIs( Application progrmming interfaces) are interfaces which define how software components should interact with each other. in the context of webDevelopment an API is typically a set of rules and protocols that enables a client to interact with sever and retrieve or manipulate data. the data can be in various formats such JSON, or xml and is often used to create dynnaic and interactive web applications.
