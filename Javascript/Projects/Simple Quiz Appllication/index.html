@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Quiz Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="quiz"></div>
+    <button id="submit">Submit</button>
+    <div id="result"></div>
+    <script>
+        const quizContainer = document.getElementById("quiz")
+        const submitButton = document.getElementById("submit")
+        const resultContainer = document.getElementById("result")
+
+        // ****************IN case we have to fetch the questions from some backend through api.
+
+        // fetch("https://backend.com/quiz5601" , {
+        //     headers:{
+        //         "Authorization":"Bearer akjflkjf98798"
+        //     }
+        // }).then(
+        //     data = response.json()
+        // ).then(
+        //     myQuestions[data]
+        // )
+
+        const myQuestions = [
+            {
+                question:"What's the capital of france?",
+                answers:{
+                    a:"Paris",
+                    b:"London",
+                    c:"Delhi",
+                    d:"Washington"
+
+                },
+                correctAnswer:"a"
+            },
+            {
+                question:"Which is the most watched sports in Inida?",
+                answers:{
+                    a:"Badminton",
+                    b:"Football",
+                    c:"Cricket",
+                    d:"Tennis"
+
+                },
+                correctAnswer:"c"
+            },
+            {
+                question:"Which is the biggest Continent?",
+                answers:{
+                    a:"Europe",
+                    b:"Africa",
+                    c:"Asia",
+                    d:"North America"
+
+                },
+                correctAnswer:"c"
+            },
+            {
+                question:"Which one of the following is most famous JS libray?",
+                answers:{
+                    a:"React",
+                    b:"Vue",
+                    c:"Angular",
+                    d:"Next Js"
+
+                },
+                correctAnswer:"a"
+            }
+        ]
+
+        function buildQuiz(){
+            const output = [];
+            myQuestions.forEach((currentQuestion, questionNumber) =>{
+                const answers = [];
+                for(letter in currentQuestion.answers){
+            
+                    answers.push(
+                    `
+                    <label>
+                        <input type = "radio" name = "quesiton${questionNumber}" value = "${letter}" />
+                        ${letter}:
+                        ${currentQuestion.answers[letter]}
+                    </label>
+                    `
+                    )
+
+                }
+                output.push(
+                    `
+                    <div class = "questionSegment">
+                        <div class = "question">${questionNumber+1}. ${currentQuestion.question}</div>
+                        <div class = "answers" >${answers.join("")}</div>  
+
+                    </div>
+                    
+                   `
+                )  
+                
+            })
+            quizContainer.innerHTML = output.join("")
+
+        }
+        function showResults(){
+            // console.log("REsults");
+            const answerContainers = quizContainer.querySelectorAll(".answers");
+            
+            let numCorrect = 0;
+
+            myQuestions.forEach((currentQuestion, questionNumber) =>{
+                const answerContainer = answerContainers[questionNumber];
+                const selector = `input[name = quesiton${questionNumber}]:checked`;
+                const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+                if(userAnswer ===currentQuestion.correctAnswer){
+                    numCorrect++;
+                    answerContainers[questionNumber].style.color = "aqua";
+                }else{
+                    answerContainers[questionNumber].style.color = "red";
+                }
+            })
+
+            console.log(numCorrect);
+
+            resultContainer.innerHTML = `${numCorrect} Correct out of ${myQuestions.length}`
+
+
+        }
+
+        buildQuiz();
+
+        submitButton.addEventListener("click",showResults);
+
+    </script>
+</body>
+</html>

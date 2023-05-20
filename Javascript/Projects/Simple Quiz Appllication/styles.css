@@ -1,0 +1,32 @@
+body{
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    height: 100vh;
+    justify-content: center;
+}
+#quiz{
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.questionSegment{
+    border: 2px solid gray; 
+    padding: 20px 40px;
+    border-radius: 10px;
+    background-color: rgb(41, 39, 39);
+    
+}
+#submit{
+    background-color: blue;
+    padding: 5px 8px;
+    color: white;
+    font-size: 18px;
+    width: 250px ;
+    border: none;
+
+}
