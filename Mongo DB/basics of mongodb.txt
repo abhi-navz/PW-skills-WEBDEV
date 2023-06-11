@@ -1,0 +1,157 @@
+test> show dbs;
+admin     40.00 KiB
+config   108.00 KiB
+local     40.00 KiB
+student   56.00 KiB
+test> use student
+switched to db student
+student> show collections
+courses
+Courses
+Students
+student> db.courses.find();
+[
+  {
+    _id: ObjectId("6485bb42bb72f86ef4ea26ba"),
+    Course: 'Phyisc',
+    type: 'Practical',
+    totalMarks: 100
+  }
+]
+
+***************  inserting one document in a collection ***************
+
+student> db.courses.insertOne
+(
+  {Course: "Chemsity", Type: "Practical", maxMarks: 100, passMarks: 33}
+);
+
+
+{
+  acknowledged: true,
+  insertedId: ObjectId("6485bc02fa3563c3f81fc7db")
+}
+student> db.courses.find();
+[
+  {
+    _id: ObjectId("6485bb42bb72f86ef4ea26ba"),
+    Course: 'Phyisc',
+    type: 'Practical',
+    totalMarks: 100
+  },
+  {
+    _id: ObjectId("6485bc02fa3563c3f81fc7db"),
+    Course: 'Chemsity',
+    Type: 'Practical',
+    maxMarks: 100,
+    passMarks: 33
+  }
+]
+
+************** Inserting multiple document in a collection *********************
+
+student> db.students.insertMany
+(
+  [
+    {Name:"Akhilesh", Roll_no: 32, role:"Class Representative", mob_no: 6388976865},
+    {Name: "Deepak Patel", role: "vice CR", isTopper:"yes", mob_no:99457687}
+  ]
+);
+
+
+
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("6485c00b9a63ae60961fb7bf"),
+    '1': ObjectId("6485c00b9a63ae60961fb7c0")
+  }
+}
+
+student> db.students.find();
+[
+  {
+    _id: ObjectId("6485be3c9a63ae60961fb7bd"),
+    Name: 'Abhinav',
+    Roll_no: 1,
+    mob_no: 9519203938
+  },
+  {
+    _id: ObjectId("6485be679a63ae60961fb7be"),
+    Name: 'Sanket',
+    Roll_no: 31,
+    mob_no: 95193939393
+  },
+  {
+    _id: ObjectId("6485c00b9a63ae60961fb7bf"),
+    Name: 'Akhilesh',
+    Roll_no: 32,
+    role: 'Class Representative',
+    mob_no: 6388976865
+  },
+  {
+    _id: ObjectId("6485c00b9a63ae60961fb7c0"),
+    Name: 'Deepak Patel',
+    role: 'vice CR',
+    isTopper: 'yes',
+    mob_no: 99457687
+  }
+]
+
+************ Find();************
+
+## findOne();
+
+student> db.students.findOne();
+{
+  _id: ObjectId("6485be3c9a63ae60961fb7bd"),
+  Name: 'Abhinav',
+  Roll_no: 1,
+  mob_no: 9519203938
+}
+
+## conditional Find({});
+
+student> db.students.find({ isTopper:"yes"});
+[
+  {
+    _id: ObjectId("6485c00b9a63ae60961fb7c0"),
+    Name: 'Deepak Patel',
+    role: 'vice CR',
+    isTopper: 'yes',
+    mob_no: 99457687
+  }
+]
+
+student> db.students.find({ Roll_no: 32,
+... role: 'Class Representative'});
+[
+  {
+    _id: ObjectId("6485c00b9a63ae60961fb7bf"),
+    Name: 'Akhilesh',
+    Roll_no: 32,
+    role: 'Class Representative',
+    mob_no: 6388976865
+  }
+]
+
+student> db.students.find({Name:"Abhinav", Roll_no: 1});
+[
+  {
+    _id: ObjectId("6485be3c9a63ae60961fb7bd"),
+    Name: 'Abhinav',
+    Roll_no: 1,
+    mob_no: 9519203938
+  }
+]
+
+student> db.students.find({_id: ObjectId("6485c00b9a63ae60961fb7bf")});
+[
+  {
+    _id: ObjectId("6485c00b9a63ae60961fb7bf"),
+    Name: 'Akhilesh',
+    Roll_no: 32,
+    role: 'Class Representative',
+    mob_no: 6388976865
+  }
+]
