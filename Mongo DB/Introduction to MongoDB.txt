@@ -1,0 +1,65 @@
+******************* NOSQL Database ************************
+
+Mongo DB is a type of NOSQL (you can do all the DB related operations without the use of Query Language) Language. 
+NOSQL stands for Not Only Query Language. It stores data in a non-relational model.
+We don't require any table in NOSQL unlike SQL to store data. 
+We can store data in NOSQL in Graph based structure or Key-Value pair base structure ex "Reddis" or Document based structure or coloumnar Database structure.
+
+One of the most famous NOSQL database comes from Document database and it's MongoDB.
+
+Databases in mongodb are Document based. 
+
+As mysql used to have tables and rows in tables, similiarly databases in mongodb have collections and each collections have one or more documents. In case of mysql database table every row need to be cosistent with the same number of parameters, but in case of mongodb database each document can have differnt types and number of key-value pari.
+
+The documents in mongodb collection needs not to follow same schema, that's why it is said that mongodb have a flexible schema.
+
+Every document posses it's own structure and fields.
+
+Example: 
+
+collection_01
+document_01
+        {
+  "_id": ObjectId("60cfc6a0b3c9b53f72c54ef2"),
+  "name": "iPhone 12",
+  "brand": "Apple",
+  "price": 999.99,
+  "description": "The latest iPhone model with advanced features.",
+  "availability": true,
+  "created_at": ISODate("2023-02-10T15:42:12.000Z")
+}
+
+documens_02
+    {
+  "_id": ObjectId("60cfc6a0b3c9b53f72c54ef1"),
+  "username": "john.doe",
+  "email": "john.doe@example.com",
+  "password": "$2a$10$Z2YuyEIkQ0s92WV1ptl1CO1KcFQYGmJ0LL5ONd/6kC5tmWVZqmBie",
+  "age": 30,
+  "address": {
+    "street": "123 Main St",
+    "city": "New York",
+    "state": "NY",
+    "country": "USA"
+  },
+  "registered": true,
+  "created_at": ISODate("2022-05-18T09:21:36.000Z")
+}
+
+See the above documens have very different structure and fielsets but it's perfectly valid in monogdb.
+
+MongoDB is very  highly scalble database and can handle very large amount of data, it's based on distributed system.
+
+
+
+
+                                            **********features ********************
+
+* High Performance
+* flexible schema
+* Highly scalble
+* Well Suited for Wide Use Cases
+* Easy Query Language and supports lots of operations
+* can handle unstructured data Well
+* availabe on cloud platforms
+
