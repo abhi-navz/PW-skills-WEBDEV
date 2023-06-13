@@ -1,0 +1,255 @@
+
+** count(),
+** limit(),
+** find();
+** sort();
+** deleteOne(),
+** deleteMany();
+
+How MongoDB stores data?
+    MongoDB stores data either in JSON(Javascript object notation) file or BSON(Binary JSON) file.
+
+JSON looks like and is inspired by Javscript Objects thta's why the Javascript Object like Notatin , It is used to create Rest APIs, congig files and to create databases ofc
+
+What's BSON?
+    Binary form of JSON, MongoDB stores data as BSON internally but when the user queries or retrives data it converts inot JSON and make it available to the end users.
+
+
+
+**************** from terminal ****************************
+
+Count Documents
+
+    switched to db airbnb_db
+    airbnb_db> show collections;
+    listings
+    airbnb_db> db.listings.count();
+    DeprecationWarning: Collection.count() is deprecated. Use countDocuments or estimatedDocumentCount.
+    5555
+    airbnb_db> db.listings.countDocuments();
+    5555
+
+Limiing number of recrods
+    
+    ## Query:
+    airbnb_db> db.listings.find({},{name:1,amenities:1}).limit(2);  
+
+    ******* // the first object in find is used to seach for records with specific parameters, and the second object is used to print specific records, for ex: name:1 means print the name, if we'll use parmeter:0 then everything will be printed except name.  
+    We can also use true or false instead of 1 and 0.
+    ***the second object is like ** select name, parmeters from listings in mysql***, 
+    the limit fucntion limits the number of records to 2.
+
+    ## Result:
+    [
+    {
+        _id: '10006546',
+        name: 'Ribeira Charming Duplex',
+        amenities: [
+        'TV',
+        'Cable TV',
+        'Wifi',
+        'Kitchen',
+        'Paid parking off premises',
+        'Smoking allowed',
+        'Pets allowed',
+        'Buzzer/wireless intercom',
+        'Heating',
+        'Family/kid friendly',
+        'Washer',
+        'First aid kit',
+        'Fire extinguisher',
+        'Essentials',
+        'Hangers',
+        'Hair dryer',
+        'Iron',
+        'Pack ’n Play/travel crib',
+        'Room-darkening shades',
+        'Hot water',
+        'Bed linens',
+        'Extra pillows and blankets',
+        'Microwave',
+        'Coffee maker',
+        'Refrigerator',
+        'Dishwasher',
+        'Dishes and silverware',
+        'Cooking basics',
+        'Oven',
+        'Stove',
+        'Cleaning before checkout',
+        'Waterfront'
+        ]
+    },
+    {
+        _id: '10009999',
+        name: 'Horto flat with small garden',
+        amenities: [
+        'Wifi',
+        'Wheelchair accessible',
+        'Kitchen',
+        'Free parking on premises',
+        'Smoking allowed',
+        'Hot tub',
+        'Buzzer/wireless intercom',
+        'Family/kid friendly',
+        'Washer',
+        'First aid kit',
+        'Essentials',
+        'Hangers',
+        'Hair dryer',
+        'Iron',
+        'Laptop friendly workspace'
+        ]
+    }
+    ]
+    
+Seaching for specific records
+
+    *** The finding of specific records from Entire JSON in MongoDB usng find function is Known as Projection
+
+    ##Example 01
+        
+        ## Query 01:
+        airbnb_db> db.listings.find({_id:"10006546"},{name:1, amenities:1});
+        
+        **** here we are seaching for records using the _id, 
+        ** It's like select name, amenities from listings where _id = "10006546" *** in mysql
+
+        ## Result 01
+
+        [
+        {
+            _id: '10006546',
+            name: 'Ribeira Charming Duplex',
+            amenities: [
+            'TV',
+            'Cable TV',
+            'Wifi',
+            'Kitchen',
+            'Paid parking off premises',
+            'Smoking allowed',
+            'Pets allowed',
+            'Buzzer/wireless intercom',
+            'Heating',
+            'Family/kid friendly',
+            'Washer',
+            'First aid kit',
+            'Fire extinguisher',
+            'Essentials',
+            'Hangers',
+            'Hair dryer',
+            'Iron',
+            'Pack ’n Play/travel crib',
+            'Room-darkening shades',
+            'Hot water',
+            'Bed linens',
+            'Extra pillows and blankets',
+            'Microwave',
+            'Coffee maker',
+            'Refrigerator',
+            'Dishwasher',
+            'Dishes and silverware',
+            'Cooking basics',
+            'Oven',
+            'Stove',
+            'Cleaning before checkout',
+            'Waterfront'
+            ]
+        }
+        ]
+
+    ** Example 02
+
+        ## Query 02:
+        airbnb_db> db.listings.find({minimum_nights:'2'},{name:1,images:1}).limit(2);
+
+        ## Result 02:
+        [
+        {
+            _id: '10006546',
+            name: 'Ribeira Charming Duplex',
+            images: {
+            thumbnail_url: '',
+            medium_url: '',
+            picture_url: 'https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large',
+            xl_picture_url: ''
+            }
+        },
+        {
+            _id: '10009999',
+            name: 'Horto flat with small garden',
+            images: {
+            thumbnail_url: '',
+            medium_url: '',
+            picture_url: 'https://a0.muscache.com/im/pictures/5b408b9e-45da-4808-be65-4edc1f29c453.jpg?aki_policy=large',
+            xl_picture_url: ''
+            }
+        }
+        ]
+
+Sorting the records in ascending or descending order
+     
+    ## Query:
+
+    airbnb_db> db.listings.find({},{name:1,minimum_nights:1,maximum_nights:1}).sort({minimum_nights:-1,maximum_nights:-1}).limit(5);
+
+    *** There's .sort() fucntion which is used to sort the records, it takes  objects with parmeter_name and it's value as either 1 (for ascending) or -1 (for descending) if the sorting by first parameter ties then the records are sorted by the second_parmeter specified.
+    In the case above , sorting is being done in descending order first by minimum_nights and then by maximum_nights
+
+    ## Result:
+
+    [
+    {
+        _id: '19760228',
+        name: 'Apartment Salva - 3 bedroom in Poble Sec',
+        minimum_nights: '96',
+        maximum_nights: '1125'
+    },
+    {
+        _id: '4404740',
+        name: 'Ko Olina: March Special - For You & Your Family!!',
+        minimum_nights: '90',
+        maximum_nights: '395'
+    },
+    {
+        _id: '23648402',
+        name: 'Flat in Moda near the sea for one or two persons.',
+        minimum_nights: '90',
+        maximum_nights: '365'
+    },
+    {
+        _id: '13813259',
+        name: 'Long term rental: Bright and Practical Apartment',
+        minimum_nights: '90',
+        maximum_nights: '360'
+    },
+    {
+        _id: '22336644',
+        name: 'Suitable place for ERASMUS students (Mecidiyeköy)',
+        minimum_nights: '90',
+        maximum_nights: '180'
+    }
+    ]
+
+Deleting records
+
+    #deleteOne() --> this function deltes one record based on the condition given.
+
+
+        ## Query 01
+
+        airbnb_db> db.listings.deleteOne({_id:'22336644'});
+        { acknowledged: true, deletedCount: 1 }
+
+        airbnb_db> db.listings.find({_id:'22336644'});
+        null
+
+    # deleteMany() --> this fucntion deletes many records based on the given condition.
+
+        ## Query 02
+
+        airbnb_db> db.listings.deleteMany({maximum_nights: '180'});
+        { acknowledged: true, deletedCount: 76 }
+
+        airbnb_db> db.listings.find({maximum_nights: '180'});
+        null
+
