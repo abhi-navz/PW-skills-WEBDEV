@@ -1,0 +1,300 @@
+###Contents
+
+    * Updation of data
+        ** updateOne({},{});
+        ** $set:{}
+        ** $inc:{}
+
+    * Query Operators
+        ** $ne
+        ** $gt , $lt
+        ** $gte, $lte
+        ** $and:[{},{},..,{}]
+        ** $or:[{},{},..,{}]
+        ** distinct("field")
+        ** $in:[] and $nin:[]
+    * Element Query
+        ** $exists
+        ** $type
+    * Indexing of Fields
+test> use weather_db
+switched to db weather_db
+weather_db> show collections
+weather_data
+weather_db> db.weather_data.find().limit(1)
+
+
+    [
+    {
+        _id: ObjectId("5553a998e4b02cf7151190b8"),
+        st: 'x+47600-047900',
+        ts: ISODate("1984-03-05T13:00:00.000Z"),
+        position: { type: 'Point', coordinates: [ -47.9, 47.6 ] },
+        elevation: 9999,
+        callLetters: 'VCSZ',
+        qualityControlProcess: 'V020',
+        dataSource: '4',
+        type: 'FM-13',
+        airTemperature: { value: -3.1, quality: '1' },
+        dewPoint: { value: 999.9, quality: '9' },
+        pressure: { value: 1015.3, quality: '1' },
+        wind: {
+        direction: { angle: 999, quality: '9' },
+        type: '9',
+        speed: { rate: 999.9, quality: '9' }
+        },
+        visibility: {
+        distance: { value: 999999, quality: '9' },
+        variability: { value: 'N', quality: '9' }
+        },
+        skyCondition: {
+        ceilingHeight: { value: 99999, quality: '9', determination: '9' },
+        cavok: 'N'
+        },
+        sections: [ 'AG1' ],
+        precipitationEstimatedObservation: { discrepancy: '2', estimatedWaterDepth: 999 }
+    }
+    ]
+
+
+# Updating data
+
+    ## updateOne({},{})
+        updateOne() functions takes two jSON objects as parameters, first one is used to select the specific record(s) based on a parmeter, and the second one is used to update values either by using $set:{} which sets a new value to the parameter or by using $inc:{} which increases the previous value by the value assigned.
+       
+       ### uisng $set:{}
+        weather_db> db.weather_data.updateOne({_id:ObjectId("5553a998e4b02cf7151190b8")},{$set:{dataSource: '5'}});
+
+        /* Here we are updating the record by setting the value of dataSource to 5. */
+
+        {
+            acknowledged: true,
+            insertedId: null,
+            matchedCount: 1,
+            modifiedCount: 1,
+            upsertedCount: 0
+        }
+
+        weather_db> db.weather_data.find({_id:ObjectId("5553a998e4b02cf7151190b8")},{dataSource: true});
+            
+        [ { _id: ObjectId("5553a998e4b02cf7151190b8"), dataSource: '5' } ]
+
+       ### using $inc:{}
+
+
+        weather_db> db.weather_data.updateOne({_id:ObjectId("5553a998e4b02cf7151190b8")},{$set:{type: ''},$inc:{elevation: +3}}); 
+
+        /* here we are updating the record by setting the value of type to empty, and by increasing the value of elevation by 3 units */
+
+
+        {
+        acknowledged: true,
+        insertedId: null,
+        matchedCount: 1,
+        modifiedCount: 1,
+        upsertedCount: 0
+        }
+
+        weather_db> db.weather_data.find({_id:ObjectId("5553a998e4b02cf7151190b8")},{dataSource: true,elevation: true, type:true});
+        [
+        {
+            _id: ObjectId("5553a998e4b02cf7151190b8"),
+            elevation: 10002,
+            dataSource: '5',
+            type: ''
+        }
+        ]     
+
+
+    ## updateMany({},{}) 
+        Similiar as updateOne here we use first object to find some records and the subject object is used to update speicified parameters in the records.    
+
+        weather_db> db.weather_data.find({callLetters: 'VCSZ'}).count()
+        12
+
+        weather_db> db.weather_data.updateMany({callLetters: 'VCSZ'},{$set:{elevation:6969}});
+        {
+        acknowledged: true,
+        insertedId: null,
+        matchedCount: 12,
+        modifiedCount: 12,
+        upsertedCount: 0
+        }
+
+        /* We updates the value of elevation to 6969 of all 12 records which satisfies the condition {callLetters: 'VCSZ'} */
+
+
+# Query Operators 
+
+    ## $ne
+
+        ne -> not equals to, 
+        $ne operator is used to find records based on a parameter whose value isn't equal to some value.
+
+        weather_db> db.weather_data.find().count()
+        10000       // total no of records
+
+        weather_db> db.weather_data.find({callLetters:{$ne: 'VCSZ'}}).count()
+        9988   // no of records wheere callLetters isn't equal to VCSZ
+
+        weather_db> db.weather_data.find({callLetters: 'VCSZ'}).count()
+        12    // no of records where callLetters is equal to VCSZ
+
+    ## $gt, $lt
+
+        gt-> greater than
+        $gt operator is used to find records based on a parameter whose value is greater than some value
+
+        weather_db> db.weather_data.find({elevation:{$gt: 6969}}).count()
+        9988
+
+        lt -> less than
+        $lt operator is used to find records based on a parameter whose value is less than some value
+
+        weather_db> db.weather_data.find({elevation:{$lt: 6969}}).count()
+        0
+        weather_db> db.weather_data.find({elevation: 6969}).count()
+        12
+
+    ## $gte , $lte
+    
+        greeater than equal to and less than equal to
+
+        weather_db> db.weather_data.find({elevation:{$lte: 6969}}).count()
+        12
+        weather_db> db.weather_data.find({elevation:{$gte: 6969}}).count()
+        10000
+
+    ## $and:[{},{},..,{}]
+
+        weather_db> db.weather_data.find({$and:[{elevation:{$gt:6969}},{elevation:{$lt:9999}}]}).count()
+        0
+        weather_db> db.weather_data.find({$and:[{elevation:{$gt:6969}},{elevation:{$lt:10000}}]}).count()
+        9988    
+
+    ## $or:[{},{},..,{}]
+
+        weather_db> db.weather_data.find({$or:[{elevation:{$gt:9999}},{elevation:{$lt:10000}}]}).count()
+        10000    
+
+    ## distinct("field")
+
+        weather_db> db.weather_data.distinct("callLetters")
+        [
+        '0BVZ', '0JSV', '2100', '3DRO', '3DRV', '3EBA', '3EDA',
+        '3EEJ', '3EEK', '3EFI', '3EFQ', '3EGC', '3EGU', '3EHC',
+        '3EHG', '3EHH', '3EIZ', '3EJF', '3EKJ', '3ELE', '3ENZ',
+        '3EOS', '3EOU', '3EPA', '3EQN', '3ERJ', '3ERZ', '3ETZ',
+        '3EWQ', '3EXD', '3EYN', '3EZL', '3FAR', '3FBD', '3FDL',
+        '3FEV', '3FGE', '3FJR', '3FJV', '3FKA', '3FMV', '3FQU',
+        '3FTJ', '3FXH', '3FXI', '3FXS', '3FYO', '3HZL', '4602',
+        '4PKY', '4XIC', '4XII', '4XIL', '4XLU', '4XLZ', '4XMX',
+        '5LFX', '5LJT', '5LLP', '5LOT', '5LOZ', '5LTW', '5LUB',
+        '5LWE', '5LWG', '5LWQ', '5MCB', '5MCN', '5MGC', '5MQI',
+        '5MTS', '5MZH', '5PVN', '6ZAM', '6ZAS', '6ZBM', '6ZCM',
+        '6ZDN', '6ZFM', '6ZHX', '6ZJP', '6ZLH', '6ZRT', '6ZUU',
+        '7FFC', '7JBJ', '7JFY', '7JKS', '7JKY', '7JOB', '7JPI',
+        '7JQI', '7JQX', '7JRZ', '7JSO', '7JSP', '7JTJ', '7JTN',
+        '7JUI', '7JVM',
+        ... 2549 more items
+        ]    
+
+    ## $in:[] and $nin:[]
+
+        The $in operator selects the documents where the value of a field equals any value in the specified array. To specify an $in expression, use the following prototype:
+
+        { field: { $in: [<value1>, <value2>, ... <valueN> ] } }
+       
+        example:
+        weather_db> db.weather_data.find({callLetters:{$in:[ '0BVZ', '0JSV', '2100', '3DRO', '3DRV']}}).count()
+        22
+
+        weather_db> db.weather_data.find({callLetters:{$nin:[ '0BVZ', '0JSV', '2100', '3DRO', '3DRV']}}).count()
+        9978
+
+# Element Query Operators
+
+    ## $exists
+
+        Syntax: { field: { $exists: <boolean> } }
+
+        When <boolean> is true, $exists
+        matches the documents that contain the field, including documents where the field value is null. If <boolean> is false, the query returns only the documents that do not contain the field. 
+
+        example 01 when true;
+
+            weather_db> db.weather_data.find({elevation:{$exists:true}},{elevation:true,type:true}).limit(3)
+            [
+            {
+                _id: ObjectId("5553a998e4b02cf7151190b8"),
+                elevation: 6969,
+                type: ''
+            },
+            {
+                _id: ObjectId("5553a998e4b02cf7151190b9"),
+                elevation: 9999,
+                type: 'FM-13'
+            },
+            {
+                _id: ObjectId("5553a998e4b02cf7151190ba"),
+                elevation: 9999,
+                type: 'FM-13'
+            }
+            ]
+
+        example 02 when false;
+
+            weather_db> db.weather_data.find({waveMeasurement:{$exists:false}},{elevation:true,type:true}).limit(3)
+            [
+            {
+                _id: ObjectId("5553a998e4b02cf7151190b8"),
+                elevation: 6969,
+                type: ''
+            },
+            {
+                _id: ObjectId("5553a998e4b02cf7151190b9"),
+                elevation: 9999,
+                type: 'FM-13'
+            },
+            {
+                _id: ObjectId("5553a998e4b02cf7151190bb"),
+                elevation: 9999,
+                type: 'FM-13'
+            }
+            ]
+
+    ## $type
+
+# Creating Index
+
+    Indexes support the efficient execution of queries in MongoDB. Without indexes, MongoDB must perform a collection scan, i.e. scan every document in a collection, to select those documents that match the query statement. If an appropriate index exists for a query, MongoDB can use the index to limit the number of documents it must inspect.
+
+    weather_db> db.weather_data.createIndex({elvation:1})
+    elvation_1
+
+
+    ### Time consumed befoe alloting index to "dewPoint.value"
+
+    weather_db> db.weather_data.find({"dewPoint.value": { $gt: 9 }}, {"dewPoint.value": true}).sort({"dewPoint.value": 1}).explain("executionStats")
+
+    executionStats: {
+    executionSuccess: true,
+    nReturned: 7902,
+    executionTimeMillis: 46,                 // 46 miliseconds
+    totalKeysExamined: 0,
+    totalDocsExamined: 10000}
+
+    ### time consumed after alloting index 
+
+    weather_db> db.weather_data.createIndex({"dewPoint.value":1})
+    dewPoint.value_1
+
+     db.weather_data.find({"dewPoint.value": { $gt: 9 }}, {"dewPoint.value": true}).sort({"dewPoint.value": 1}).explain("executionStats")
+
+     executionStats: {
+    executionSuccess: true,
+    nReturned: 7902,
+    executionTimeMillis: 11,
+    totalKeysExamined: 7902,
+    totalDocsExamined: 7902}
+
