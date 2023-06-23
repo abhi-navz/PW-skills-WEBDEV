@@ -1,0 +1,26 @@
+{
+  "name": "testproject",
+  "version": "1.0.1",
+  "description": "A test project i'm creating to learn basics of npm and it's functionalities ",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhi-navz/PW-skills-WEBDEV.git"
+  },
+  "keywords": [
+    "\"Abhinav",
+    "Gupta\"",
+    "\"Node",
+    "Js\"",
+    "\"pw\""
+  ],
+  "author": "Abhinav Gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhi-navz/PW-skills-WEBDEV/issues"
+  },
+  "homepage": "https://github.com/abhi-navz/PW-skills-WEBDEV#readme"
+}
