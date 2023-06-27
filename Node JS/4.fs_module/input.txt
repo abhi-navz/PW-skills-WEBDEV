@@ -1,0 +1,3 @@
+file update via synchronous wayLearing FS module by chiral goel sir on pw skills 
+Learing FS module by Chirag Goel sir on pw skills
+Adding data through synchronous way
