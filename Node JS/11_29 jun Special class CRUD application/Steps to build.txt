@@ -1,0 +1,75 @@
+How to start making a crud appllication?
+
+    Open the directory, initialize the npm and install some packatges like express, mongoose, dotenv(to keep senstive data at a place).
+
+    1. Create two files server.js and app.js(to keep the app clean)
+    2. initialize express in app.js and dotenv file
+    3. export it and impor it in server.js
+    4. Declare the port and listen to the sever in server.js
+        const PORT = process.env.PORT || 6000;
+
+        app.listen(PORT,()=>{
+            console.log(`Server is up and running at http://localhost:${PORT}`);
+        })
+    
+    5. Now we will establish the connection with the database, for that we'll be creating a file as 'db.js' in 'db.config' folder
+
+        a. we'll import the mongoose package and will create a method 'connectToDb' to establish the connection
+
+        const connectToDb = async () => {
+        mongoose
+        .connect(process.env.MONGOURI)
+        .then((conn) => {
+        console.log(`Connected To DB:${conn.connection.host}`);
+        })
+        .catch((err) => {
+        console.log(err.message);
+        process.exit(1);
+        });
+      };
+
+    6.and we'll simply export connectToDb and wil impor in 'app.js'
+
+    7. Now we'll Design the schema of our database, for that we'll be creating a file 'userModels.js' in a separate folder named 'models'.
+
+        a. import the mongoose package 
+        b. creat the schema using mongoose's ' .mongoose.Schema()
+            const userSchema = new mongoose.Schema({
+            name: {
+                type: String,
+                required: [true, "Name is required"],
+                trim: true,
+                maxLength: [30, "Name should be of less than 30 characters"],
+            },
+            email: {
+                type: String,
+                unique: true,
+                required: [true, "Email is mandatory"],
+            },
+          });
+
+        c. Now simply export the collection using 'mongoose.model() and import it in userMethods.js coz there it's gonna be used.
+            module.exports = mongoose.model("Users", userSchema);
+
+    8. Now we'll be writing all our methods in a file 'userCotroller.js' in a separte folder 'controllers' 
+
+        like this:
+        exports.home = (req, res) => {
+        res.send("<h1>Home Response</h1>");
+        };
+
+    9. Now we'll be creating another file to keep all the user routers as "userRoutes.js" in a separtef folder 'routes'    
+        const express = require("express");
+
+        const { home } = require("../controllers/userController.js");
+
+        const router = express.Router();
+
+        module.exports = router;
+
+        router.get("/", home);
+
+    10. Now to create uses in database we'll need data from front end righ, so we'll tell the app to use data coming from frontend as json or urlencoded 
+        app.use(express.json())
+        app.use(express.urlencoded({extended:true}))
+        app.use(cors())   ---> read about it   
