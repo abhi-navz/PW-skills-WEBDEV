@@ -1,15 +1,22 @@
 require("dotenv").config();
 const express = require("express");
-const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 const authRouter = require("./routers/authRouter");
+const cors = require("cors");
 const databaseConnect = require("./config/databaseConfig");
 
 const app = express();
 databaseConnect();
 
+app.use(cookieParser());
 app.use(express.json());
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(
+  cors({
+    origin: [process.env.CLIENT_URL],
+    credentials: true,
+  })
+);
 
 app.use("/api/auth", authRouter);
 app.use("/", (req, res) => {

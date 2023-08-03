@@ -1,5 +1,6 @@
 const userModel = require("../models/userSchema");
 const emailValidator = require("email-validator");
+const bcrypt = require("bcrypt");
 
 const signup = async (req, res) => {
   const { name, email, password, confirmPassword } = req.body;
@@ -45,6 +46,8 @@ const signup = async (req, res) => {
   }
 };
 
+// Sign IN controlller
+
 const signin = async (req, res) => {
   const { email, password } = req.body;
 
@@ -61,7 +64,7 @@ const signin = async (req, res) => {
       })
       .select("+password");
 
-    if (!user || password !== user.password) {
+    if (!user || !(await bcrypt.compare(password, user.password))) {
       res.status(400).json({
         success: false,
         message: "Invalid Credentials",
@@ -79,7 +82,7 @@ const signin = async (req, res) => {
     res.cookie("token", token, cookieOptions);
     res.status(200).json({
       success: true,
-      message: `SinIn Successfull , Hello ${user.name}`,
+      message: `SignIn Successfull , Hello ${user.name}`,
       data: user,
     });
   } catch (e) {
@@ -90,4 +93,44 @@ const signin = async (req, res) => {
   }
 };
 
-module.exports = { signup, signin };
+// user details
+const getUser = async (req, res) => {
+  const userId = req.user.id;
+
+  try {
+    const user = await userModel.findById(userId);
+    return res.status(200).json({
+      success: true,
+      data: `Hello ${user.name}, How are you today?`,
+    });
+  } catch {
+    e;
+  }
+  {
+    return res.status(400).json({
+      success: false,
+      message: e.message,
+    });
+  }
+};
+
+// logout controller
+
+const logout = (req, res) => {
+  try {
+    const cookieOptions = { expires: new Date(), httpOnly: true };
+
+    res.cookie("token", null, cookieOptions);
+    res.status(200).json({
+      success: true,
+      message: "Logged Out Successfully!",
+    });
+  } catch (e) {
+    return res.status(400).json({
+      success: false,
+      message: e.message,
+    });
+  }
+};
+
+module.exports = { signup, signin, getUser, logout };
